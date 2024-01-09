@@ -29,13 +29,40 @@ int Dequeue(int arr[]){
         return -1;
     }else{
         flag = 1;
-        return arr[front];
+       int val = arr[front];
+       if(front == rear){
+        front = -1;
+        rear = -1;
+       }else{
         front++;
-        return val;
+     } return val;
         
     }
 
 }
+
+int Frontt(){
+    if(front == -1){
+        flag=0;
+        return -1;
+
+    }else{
+        flag=1;
+        return arr[front];
+    }
+}
+
+int PrintQueue(int arr[]){
+    if(front ==-1){
+        return -1;
+    }else{
+        for(int i=front;i<=rear;i++){
+            printf("%d",arr[i]);
+        }
+        printf("\n");
+    }
+}
+
 void main(){
     printf("enter size of an array \n");
     scanf("%d",&size);
@@ -77,12 +104,21 @@ void main(){
             break;
             case 3:
             {
-               // Frontt(arr);
+            int ret = Frontt(arr);
+            if(flag == 1)
+            printf("front =%d",ret);
+            else
+            printf("Q is empty\n");
             }
             break;
             case 4:
             {
-              //  PrintQueue(arr);
+              int ret = PrintQueue(arr);
+              if(ret == -1){
+                printf("Q is empty\n");
+              }
+
+              
             }
             break;
 
